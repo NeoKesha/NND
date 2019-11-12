@@ -72,6 +72,7 @@
     <Compile Include="Model\IModel.cs" />
     <Compile Include="Model\Layer.cs" />
     <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\Parameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
