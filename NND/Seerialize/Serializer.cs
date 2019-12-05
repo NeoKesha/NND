@@ -21,5 +21,8 @@ namespace NND.Seerialize {
             KerasVersion = "2.2.5";
             Backend = "tensorflow";
         }
+        public void Serialize(System.IO.StreamWriter writer) {
+            writer.Write(JsonConvert.SerializeObject(this));
+        }
     }
 }
