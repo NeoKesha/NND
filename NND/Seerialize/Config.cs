@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace NND.Seerialize {
-    class Config {
+    public class Config {
     }
 }
