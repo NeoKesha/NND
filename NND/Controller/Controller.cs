@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace NND.Controller {
-    class Controller {
+    public class Controller {
+
     }
 }
