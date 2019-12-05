@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace NND.Seerialize {
+namespace NND.Serialize {
     public class Serializer {
         [JsonProperty(PropertyName = "class_name")]
         public String ClassName { get; set; }
