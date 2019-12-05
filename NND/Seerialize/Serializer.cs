@@ -10,7 +10,7 @@ namespace NND.Seerialize {
         [JsonProperty(PropertyName = "class_name")]
         public String ClassName { get; set; }
         [JsonProperty(PropertyName = "config")]
-        public Object[] Config { get; set; }
+        public Config[] Config { get; set; }
         [JsonProperty(PropertyName = "keras_version")]
         public String KerasVersion { get; set; }
         [JsonProperty(PropertyName = "backend")]
