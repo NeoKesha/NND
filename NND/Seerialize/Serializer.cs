@@ -15,5 +15,11 @@ namespace NND.Seerialize {
         public String KerasVersion { get; set; }
         [JsonProperty(PropertyName = "backend")]
         public String Backend { get; set; }
+        public Serializer(NND.Model.Model model) {
+            ClassName = "sequential";
+            Config = null;
+            KerasVersion = "2.2.5";
+            Backend = "tensorflow";
+        }
     }
 }
