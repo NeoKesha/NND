@@ -22,7 +22,9 @@ namespace NND.Seerialize {
             Backend = "tensorflow";
         }
         public void Serialize(System.IO.StreamWriter writer) {
-            writer.Write(JsonConvert.SerializeObject(this));
+            if (writer != null) {
+                writer.Write(JsonConvert.SerializeObject(this));
+            }
         }
     }
 }
