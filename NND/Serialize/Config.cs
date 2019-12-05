@@ -11,5 +11,9 @@ namespace NND.Serialize {
         public String Name { get; set; }
         [JsonProperty(PropertyName = "layers")]
         public Object[] Layers { get; set; }
+        public Config(Model.Model model) {
+            Name = "sequential_1";
+            Layers = null;
+        }
     }
 }
