@@ -15,6 +15,9 @@ namespace NND.Serialize {
             Name = "sequential_1";
             var Nodes = model.GetLayerNodes();
             Layers = new SerialLayer[Nodes.Length];
+            for (var i = 0; i < Nodes.Length; ++i) {
+                Layers[i] = new SerialLayer(Nodes[i]);
+            }
         }
     }
 }

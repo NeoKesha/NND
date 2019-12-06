@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace NND.Serialize
 {
     public class SerialLayer {
+        public SerialLayer(Model.LayerNode node) {
 
+        }
     }
 }
