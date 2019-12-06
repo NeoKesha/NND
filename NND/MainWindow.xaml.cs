@@ -20,6 +20,16 @@ namespace NND {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
+            Model.Model model = new Model.Model();
+            var types = model.GetLayerTypes();
+            foreach (var type in types) {
+                model.AddNode(type);
+            }
+            Serialize.Serializer s = new Serialize.Serializer(model);
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(new System.IO.FileStream(@"D:\test.txt", System.IO.FileMode.Create, System.IO.FileAccess.Write));
+            s.Serialize(writer);
+            writer.Flush();
+            writer.Close();
         }
     }
 }

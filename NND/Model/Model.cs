@@ -10,6 +10,7 @@ namespace NND.Model {
         List<LayerType> LayerTypes;
         List<LayerNode> LayerNodes;
         public Model() {
+            LayerNodes = new List<LayerNode>();
             LayerTypes = new List<LayerType>();
             LayerTypes.Add(new LayerType("Input", "Core",
                 new Parameter[]{    new Parameter("shape", "Tuple", "1", new string[]{ }),
