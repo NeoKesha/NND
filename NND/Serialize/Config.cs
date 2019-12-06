@@ -10,13 +10,16 @@ namespace NND.Serialize {
         [JsonProperty(PropertyName = "name")]
         public String Name { get; set; }
         [JsonProperty(PropertyName = "layers")]
-        public SerialLayer[] Layers { get; set; }
+        public List<SerialLayer> Layers { get; set; }
         public Config(Model.Model model) {
             Name = "sequential_1";
+            Layers = new List<SerialLayer>();
             var Nodes = model.GetLayerNodes();
-            Layers = new SerialLayer[Nodes.Length];
-            for (var i = 0; i < Nodes.Length; ++i) {
-                Layers[i] = new SerialLayer(Nodes[i]);
+            foreach (var node in Nodes) {
+                SerialLayer layer = new SerialLayer(node);
+                if (layer.ClassName != "Input") {
+                    Layers.Add(layer);
+                }
             }
         }
     }
