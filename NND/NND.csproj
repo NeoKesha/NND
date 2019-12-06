@@ -60,6 +60,7 @@
     </ApplicationDefinition>
     <Compile Include="Serialize\Config.cs" />
     <Compile Include="Serialize\Serializer.cs" />
+    <Compile Include="Serialize\SerialLayer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
