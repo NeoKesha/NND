@@ -7,8 +7,9 @@ using Newtonsoft.Json;
 
 namespace NND.Serialize
 {
-    public class SerialLayer
-    {
+
+    public class SerialLayer {
+
         [JsonProperty(PropertyName = "class_name")]
 
         public String ClassName { get; set; }
@@ -16,6 +17,7 @@ namespace NND.Serialize
         [JsonProperty(PropertyName = "config")]
 
         public Dictionary<String, Object> Config { get; set; }
+
         [NonSerialized]
         static private string inputShape = "1";
 
@@ -25,17 +27,13 @@ namespace NND.Serialize
         [NonSerialized]
         static private string dataType = "float32";
 
-        public SerialLayer(Model.LayerNode node)
+        public SerialLayer(Model.LayerNode node) 
         {
             ClassName = node.Base.LayerName;
+
             Config = new Dictionary<string, object>();
-            if (ClassName == "Input")
-            {
-                dataType = node.values["dtype"];
-                inputShape = node.values["shape"];
-                setInput = true;
-            }
-            else
+
+            if (ClassName != "Input")
             {
                 if (setInput)
                 {
@@ -66,17 +64,27 @@ namespace NND.Serialize
                             Config.Add(param_key, Convert.ToInt32(param_value));
                             break;
                         case "tuple":
-                            string[] strs = param_value.Split(',');
-                            int[] ints = new int[strs.Length];
-                            for (var i = 0; i < strs.Length; ++i)
-                            {
-                                ints[i] = Convert.ToInt32(strs[i]);
-                            }
-                            Config.Add(param_key, ints);
+                            Config.Add(param_key, getInts(param_value.Split(',')));
                             break;
                     }
                 }
             }
+            else
+            {
+                dataType = node.values["dtype"];
+                inputShape = node.values["shape"];
+                setInput = true;
+            }
+        }
+
+        private int[] getInts(string[] strings)
+        {
+            int[] ints = new int[strings.Length];
+            for (var i = 0; i < strings.Length; ++i)
+            {
+                ints[i] = Convert.ToInt32(strings[i]);
+            }
+            return ints;
         }
     }
 }
