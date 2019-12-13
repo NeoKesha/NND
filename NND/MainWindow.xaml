@@ -11,5 +11,8 @@
         <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="23,373,0,0" VerticalAlignment="Top" Width="216" Click="Button_Click"/>
         <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="332" Margin="264,22,0,0" VerticalAlignment="Top" Width="244" SelectionChanged="ListBox1_SelectionChanged"/>
         <Button x:Name="button1" Content="Remove" HorizontalAlignment="Left" Height="20" Margin="264,373,0,0" VerticalAlignment="Top" Width="244" Click="Button1_Click"/>
+        <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="242" Margin="526,22,0,0" VerticalAlignment="Top" Width="240" SelectionChanged="ListBox2_SelectionChanged"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25" Margin="526,291,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="240" TextChanged="TextBox_TextChanged"/>
+        <Button x:Name="button3" Content="Save to JSON" HorizontalAlignment="Left" Margin="526,373,0,0" VerticalAlignment="Top" Width="240" Click="Button3_Click"/>
     </Grid>
 </Window>
