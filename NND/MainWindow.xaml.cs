@@ -88,6 +88,19 @@ namespace NND
             }
         }
 
-        
+        private void Button3_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog();
+            saveFileDialog.Filter = "JSON File (*.json)|*.json";
+            if (saveFileDialog.ShowDialog().Value)
+            {
+                String fileName = saveFileDialog.FileName;
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(new System.IO.FileStream(fileName, System.IO.FileMode.Create, System.IO.FileAccess.Write));
+                Serialize.Serializer serializer = new Serialize.Serializer(model);
+                serializer.Serialize(writer);
+                writer.Flush();
+                writer.Close();
+            }
+        }
     }
 }
