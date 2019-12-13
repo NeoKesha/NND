@@ -77,5 +77,15 @@ namespace NND
             }
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Model.LayerNode selectedNode = (Model.LayerNode)listBox1.SelectedItem;
+            if (selectedNode != null)
+            {
+                selectedNode.values[selectedKey] = textBox.Text;
+                listBox2.ItemsSource = null;
+                listBox2.ItemsSource = selectedNode.values;
+            }
+        }
     }
 }
