@@ -27,16 +27,8 @@ namespace NND
         {
             InitializeComponent();
             model = new Model.Model();
-            var types = model.GetLayerTypes();
-            foreach (var type in types) 
-            {
-                model.AddNode(type);
-            }
-            Serialize.Serializer s = new Serialize.Serializer(model);
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(new System.IO.FileStream(@"D:\test.txt", System.IO.FileMode.Create, System.IO.FileAccess.Write));
-            s.Serialize(writer);
-            writer.Flush();
-            writer.Close();
+            listBox.ItemsSource = model.GetLayerTypesLink();
+            listBox1.ItemsSource = model.GetLayerNodesLink();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
