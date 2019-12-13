@@ -13,16 +13,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NND {
+namespace NND 
+{
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
+    public partial class MainWindow : Window 
+    {
+
+        private Model.Model model;
+
+        public MainWindow() 
+        {
             InitializeComponent();
-            Model.Model model = new Model.Model();
+            model = new Model.Model();
             var types = model.GetLayerTypes();
-            foreach (var type in types) {
+            foreach (var type in types) 
+            {
                 model.AddNode(type);
             }
             Serialize.Serializer s = new Serialize.Serializer(model);
@@ -30,6 +37,23 @@ namespace NND {
             s.Serialize(writer);
             writer.Flush();
             writer.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Model.LayerType selected = (Model.LayerType)listBox.SelectedItem;
+            if (selected != null)
+            {
+                if (listBox1.SelectedIndex == -1)
+                {
+                    model.AddNode(selected);
+                }
+                else
+                {
+                    model.AddNode(selected, listBox1.SelectedIndex + 1);
+                }
+            }
+
         }
     }
 }
