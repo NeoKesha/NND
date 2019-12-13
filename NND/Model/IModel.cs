@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NND.Model {
-    public interface IModel {
+namespace NND.Model
+{
+    public interface IModel
+    {
         /**<summary>
          * Returns list of Layer Types
          * </summary>*/
@@ -16,6 +18,6 @@ namespace NND.Model {
         void AddNode(LayerType baseType, Int32 position);
         void RemoveNode(Int32 position);
         void MoveNode(Int32 from, Int32 to);
-        
+
     }
 }

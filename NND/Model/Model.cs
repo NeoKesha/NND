@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NND.Model {
-    
-    public class Model : IModel {
-        List<LayerType> LayerTypes;
-        List<LayerNode> LayerNodes;
-        public Model() {
-            LayerNodes = new List<LayerNode>();
-            LayerTypes = new List<LayerType>();
+namespace NND.Model
+{
+
+    public class Model : IModel
+    {
+
+        ObservableCollection<LayerType> LayerTypes;
+        ObservableCollection<LayerNode> LayerNodes;
+
+        public Model()
+        {
+            LayerNodes = new ObservableCollection<LayerNode>();
+            LayerTypes = new ObservableCollection<LayerType>();
             LayerTypes.Add(new LayerType("Input", "Core",
                 new Parameter[]{    new Parameter("shape", "Tuple", "1", new string[]{ }),
                                     new Parameter("dtype", "String", "float32" , new string[] { "float32", "float64", "int32" })
@@ -37,19 +43,31 @@ namespace NND.Model {
         }
 
         public LayerType[] GetLayerTypes() { return LayerTypes.ToArray(); }
+
         public LayerNode[] GetLayerNodes() { return LayerNodes.ToArray(); }
-        public void AddNode(LayerType baseType) {
+
+        public void AddNode(LayerType baseType)
+        {
             LayerNodes.Add(new LayerNode(baseType));
         }
-        public void AddNode(LayerType baseType, Int32 position) {
+
+        public void AddNode(LayerType baseType, Int32 position)
+        {
             LayerNodes.Insert(position, new LayerNode(baseType));
         }
-        public void RemoveNode(Int32 position) {
+
+        public void RemoveNode(Int32 position)
+        {
             LayerNodes.RemoveAt(position);
         }
-        public void MoveNode(Int32 from, Int32 to) {
+
+        public void MoveNode(Int32 from, Int32 to)
+        {
             LayerNodes.Insert(to, LayerNodes[from]);
-            LayerNodes.RemoveAt((from > to)?(from+1):from);
+            LayerNodes.RemoveAt((from > to) ? (from + 1) : from);
         }
+
+        public ObservableCollection<LayerType> GetLayerTypesLink() { return LayerTypes; }
+        public ObservableCollection<LayerNode> GetLayerNodesLink() { return LayerNodes; }
     }
 }
