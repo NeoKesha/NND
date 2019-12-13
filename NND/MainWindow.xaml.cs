@@ -87,5 +87,15 @@ namespace NND
                 listBox2.ItemsSource = selectedNode.values;
             }
         }
+
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                model.RemoveNode(listBox1.SelectedIndex);
+            }
+        }
+
+        
     }
 }
