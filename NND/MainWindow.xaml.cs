@@ -31,7 +31,7 @@ namespace NND
             listBox1.ItemsSource = model.GetLayerNodesLink();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
             Model.LayerType selected = (Model.LayerType)listBox.SelectedItem;
             if (selected != null)
@@ -80,7 +80,7 @@ namespace NND
             }
         }
 
-        private void Button1_Click(object sender, RoutedEventArgs e)
+        private void Remove_Click(object sender, RoutedEventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
@@ -88,7 +88,7 @@ namespace NND
             }
         }
 
-        private void Button3_Click(object sender, RoutedEventArgs e)
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog();
             saveFileDialog.Filter = "JSON File (*.json)|*.json";
