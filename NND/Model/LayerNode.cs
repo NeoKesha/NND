@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NND.Model 
+namespace NND.Model
 {
-    public class LayerNode 
+    public class LayerNode
     {
         static UInt32 count = 0;
 
@@ -16,12 +16,12 @@ namespace NND.Model
 
         public UInt32 Id { get; private set; }
 
-        public LayerNode(LayerType type) 
+        public LayerNode(LayerType type)
         {
             Base = type;
             values = new Dictionary<string, string>();
             Id = ++count;
-            foreach (var p in type.Parameters) 
+            foreach (var p in type.Parameters)
             {
                 values.Add(p.Name, p.DefaultValue);
             }

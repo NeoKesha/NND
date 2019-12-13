@@ -5,14 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NND.Model {
-    
-    public class Model : IModel {
+namespace NND.Model
+{
+
+    public class Model : IModel
+    {
 
         ObservableCollection<LayerType> LayerTypes;
         ObservableCollection<LayerNode> LayerNodes;
 
-        public Model() {
+        public Model()
+        {
             LayerNodes = new ObservableCollection<LayerNode>();
             LayerTypes = new ObservableCollection<LayerType>();
             LayerTypes.Add(new LayerType("Input", "Core",
@@ -43,21 +46,25 @@ namespace NND.Model {
 
         public LayerNode[] GetLayerNodes() { return LayerNodes.ToArray(); }
 
-        public void AddNode(LayerType baseType) {
+        public void AddNode(LayerType baseType)
+        {
             LayerNodes.Add(new LayerNode(baseType));
         }
 
-        public void AddNode(LayerType baseType, Int32 position) {
+        public void AddNode(LayerType baseType, Int32 position)
+        {
             LayerNodes.Insert(position, new LayerNode(baseType));
         }
 
-        public void RemoveNode(Int32 position) {
+        public void RemoveNode(Int32 position)
+        {
             LayerNodes.RemoveAt(position);
         }
 
-        public void MoveNode(Int32 from, Int32 to) {
+        public void MoveNode(Int32 from, Int32 to)
+        {
             LayerNodes.Insert(to, LayerNodes[from]);
-            LayerNodes.RemoveAt((from > to)?(from+1):from);
+            LayerNodes.RemoveAt((from > to) ? (from + 1) : from);
         }
 
         public ObservableCollection<LayerType> GetLayerTypesLink() { return LayerTypes; }

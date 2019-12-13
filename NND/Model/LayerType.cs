@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NND.Model 
+namespace NND.Model
 {
-    public class LayerType 
+    public class LayerType
     {
         static int Layers = 0;
 
@@ -16,7 +16,7 @@ namespace NND.Model
 
         public string CategoryName { get; private set; }
 
-        public List<Parameter> Parameters {get; private set; }
+        public List<Parameter> Parameters { get; private set; }
 
         public LayerType(string layerName, string categoryName, Parameter[] parameters)
         {
