@@ -62,7 +62,20 @@ namespace NND
             {
                 listBox2.ItemsSource = selected.values;
             }
-
         }
+
+        private string selectedKey = "";
+
+        private void ListBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Object obj = listBox2.SelectedItem;
+            if (obj != null)
+            {
+                KeyValuePair<string, string> selected = (KeyValuePair<string, string>)obj;
+                selectedKey = selected.Key;
+                textBox.Text = selected.Value;
+            }
+        }
+
     }
 }
