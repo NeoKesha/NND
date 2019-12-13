@@ -53,6 +53,15 @@ namespace NND
                     model.AddNode(selected, listBox1.SelectedIndex + 1);
                 }
             }
+        }
+
+        private void ListBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Model.LayerNode selected = (Model.LayerNode)listBox1.SelectedItem;
+            if (selected != null)
+            {
+                listBox2.ItemsSource = selected.values;
+            }
 
         }
     }
