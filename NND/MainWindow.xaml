@@ -9,5 +9,7 @@
     <Grid>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="332" Margin="23,22,0,0" VerticalAlignment="Top" Width="216"/>
         <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="23,373,0,0" VerticalAlignment="Top" Width="216" Click="Button_Click"/>
+        <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="332" Margin="264,22,0,0" VerticalAlignment="Top" Width="244" SelectionChanged="ListBox1_SelectionChanged"/>
+        <Button x:Name="button1" Content="Remove" HorizontalAlignment="Left" Height="20" Margin="264,373,0,0" VerticalAlignment="Top" Width="244" Click="Button1_Click"/>
     </Grid>
 </Window>
