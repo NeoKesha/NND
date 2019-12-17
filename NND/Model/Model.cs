@@ -74,7 +74,7 @@ namespace NND.Model
                                     new Parameter("depth_multiplier", "Int", "1", new string[]{ }),
                 }
                 ));
-            LayerTypes.Add(new LayerType("TransposeConv2D", "Convolutional",
+            LayerTypes.Add(new LayerType("Conv2DTranspose", "Convolutional",
                 new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
                                     new Parameter("kernel_size", "Tuple", "1", new string[]{ }),
                                     new Parameter("strides", "Tuple", "1", new string[]{ }),
@@ -83,6 +83,14 @@ namespace NND.Model
                 }
                 ));
             LayerTypes.Add(new LayerType("Conv3D", "Convolutional",
+                new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
+                                    new Parameter("kernel_size", "Tuple", "1", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" }),
+                                    new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("Conv3DTranspose", "Convolutional",
                 new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
                                     new Parameter("kernel_size", "Tuple", "1", new string[]{ }),
                                     new Parameter("strides", "Tuple", "1", new string[]{ }),
