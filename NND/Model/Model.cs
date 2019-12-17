@@ -118,6 +118,10 @@ namespace NND.Model
                 new Parameter[]{    new Parameter("size", "Tuple", "1,1", new string[]{ }),
                 }
                 ));
+            LayerTypes.Add(new LayerType("UpSampling3D", "Convolutional",
+                new Parameter[]{    new Parameter("size", "Tuple", "1,1,1", new string[]{ }),
+                }
+                ));
         }
 
         public LayerType[] GetLayerTypes() { return LayerTypes.ToArray(); }
