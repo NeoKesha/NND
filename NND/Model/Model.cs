@@ -98,6 +98,10 @@ namespace NND.Model
                                     new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
                 }
                 ));
+            LayerTypes.Add(new LayerType("Cropping1D", "Convolutional",
+                new Parameter[]{    new Parameter("cropping", "Tuple", "1, 1", new string[]{ }),
+                }
+                ));
         }
 
         public LayerType[] GetLayerTypes() { return LayerTypes.ToArray(); }
