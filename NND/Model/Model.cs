@@ -207,6 +207,10 @@ namespace NND.Model
                 new Parameter[]{    new Parameter("stddev", "Float", "1.0", new string[]{ }),
                 }
                 ));
+            LayerTypes.Add(new LayerType("GaussianDropout", "Noise",
+                new Parameter[]{    new Parameter("rate", "Float", "0.8", new string[]{ }),
+                }
+                ));
         }
 
         public LayerType[] GetLayerTypes() { return LayerTypes.ToArray(); }
