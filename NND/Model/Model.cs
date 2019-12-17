@@ -166,6 +166,10 @@ namespace NND.Model
                 new Parameter[]{
                 }
                 ));
+            LayerTypes.Add(new LayerType("GlobalMaxPooling2D", "Convolutional",
+                new Parameter[]{
+                }
+                ));
         }
 
         public LayerType[] GetLayerTypes() { return LayerTypes.ToArray(); }
