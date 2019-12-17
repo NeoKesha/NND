@@ -99,7 +99,11 @@ namespace NND.Model
                 }
                 ));
             LayerTypes.Add(new LayerType("Cropping1D", "Convolutional",
-                new Parameter[]{    new Parameter("cropping", "Tuple", "1, 1", new string[]{ }),
+                new Parameter[]{    new Parameter("cropping", "Tuple", "0, 0", new string[]{ }),
+                }
+                ));
+            LayerTypes.Add(new LayerType("Cropping2D", "Convolutional",
+                new Parameter[]{    new Parameter("cropping", "Tuple", "0, 0, 0, 0", new string[]{ }),
                 }
                 ));
         }
