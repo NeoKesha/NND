@@ -152,6 +152,12 @@ namespace NND.Model
                                     new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
                 }
                 ));
+            LayerTypes.Add(new LayerType("AveragePooling3D", "Convolutional",
+                new Parameter[]{    new Parameter("pool_size", "Tuple", "2,2,2", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1, 1, 1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
+                }
+                ));
         }
 
         public LayerType[] GetLayerTypes() { return LayerTypes.ToArray(); }
