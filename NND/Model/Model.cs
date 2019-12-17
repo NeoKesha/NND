@@ -122,6 +122,12 @@ namespace NND.Model
                 new Parameter[]{    new Parameter("size", "Tuple", "1,1,1", new string[]{ }),
                 }
                 ));
+            LayerTypes.Add(new LayerType("MaxPooling1D", "Convolutional",
+                new Parameter[]{    new Parameter("pool_size", "Int", "2", new string[]{ }),
+                                    new Parameter("strides", "Int", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
+                }
+                ));
         }
 
         public LayerType[] GetLayerTypes() { return LayerTypes.ToArray(); }
