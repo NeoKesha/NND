@@ -122,63 +122,63 @@ namespace NND.Model
                 new Parameter[]{    new Parameter("size", "Tuple", "1,1,1", new string[]{ }),
                 }
                 ));
-            LayerTypes.Add(new LayerType("MaxPooling1D", "Convolutional",
+            LayerTypes.Add(new LayerType("MaxPooling1D", "Pooling",
                 new Parameter[]{    new Parameter("pool_size", "Int", "2", new string[]{ }),
                                     new Parameter("strides", "Int", "1", new string[]{ }),
                                     new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
                 }
                 ));
-            LayerTypes.Add(new LayerType("MaxPooling2D", "Convolutional",
+            LayerTypes.Add(new LayerType("MaxPooling2D", "Pooling",
                 new Parameter[]{    new Parameter("pool_size", "Tuple", "2,2", new string[]{ }),
                                     new Parameter("strides", "Tuple", "1, 1", new string[]{ }),
                                     new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
                 }
                 ));
-            LayerTypes.Add(new LayerType("MaxPooling3D", "Convolutional",
+            LayerTypes.Add(new LayerType("MaxPooling3D", "Pooling",
                 new Parameter[]{    new Parameter("pool_size", "Tuple", "2,2,2", new string[]{ }),
                                     new Parameter("strides", "Tuple", "1, 1, 1", new string[]{ }),
                                     new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
                 }
                 ));
-            LayerTypes.Add(new LayerType("AveragePooling1D", "Convolutional",
+            LayerTypes.Add(new LayerType("AveragePooling1D", "Pooling",
                 new Parameter[]{    new Parameter("pool_size", "Int", "2", new string[]{ }),
                                     new Parameter("strides", "Int", "1", new string[]{ }),
                                     new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
                 }
                 ));
-            LayerTypes.Add(new LayerType("AveragePooling2D", "Convolutional",
+            LayerTypes.Add(new LayerType("AveragePooling2D", "Pooling",
                 new Parameter[]{    new Parameter("pool_size", "Tuple", "2,2", new string[]{ }),
                                     new Parameter("strides", "Tuple", "1, 1", new string[]{ }),
                                     new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
                 }
                 ));
-            LayerTypes.Add(new LayerType("AveragePooling3D", "Convolutional",
+            LayerTypes.Add(new LayerType("AveragePooling3D", "Pooling",
                 new Parameter[]{    new Parameter("pool_size", "Tuple", "2,2,2", new string[]{ }),
                                     new Parameter("strides", "Tuple", "1, 1, 1", new string[]{ }),
                                     new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
                 }
                 ));
-            LayerTypes.Add(new LayerType("GlobalMaxPooling1D", "Convolutional",
+            LayerTypes.Add(new LayerType("GlobalMaxPooling1D", "Pooling",
                 new Parameter[]{
                 }
                 ));
-            LayerTypes.Add(new LayerType("GlobalAveragePooling1D", "Convolutional",
+            LayerTypes.Add(new LayerType("GlobalAveragePooling1D", "Pooling",
                 new Parameter[]{
                 }
                 ));
-            LayerTypes.Add(new LayerType("GlobalMaxPooling2D", "Convolutional",
+            LayerTypes.Add(new LayerType("GlobalMaxPooling2D", "Pooling",
                 new Parameter[]{
                 }
                 ));
-            LayerTypes.Add(new LayerType("GlobalAveragePooling2D", "Convolutional",
+            LayerTypes.Add(new LayerType("GlobalAveragePooling2D", "Pooling",
                 new Parameter[]{
                 }
                 ));
-            LayerTypes.Add(new LayerType("GlobalMaxPooling3D", "Convolutional",
+            LayerTypes.Add(new LayerType("GlobalMaxPooling3D", "Pooling",
                 new Parameter[]{
                 }
                 ));
-            LayerTypes.Add(new LayerType("GlobalAveragePooling3D", "Convolutional",
+            LayerTypes.Add(new LayerType("GlobalAveragePooling3D", "Pooling",
                 new Parameter[]{
                 }
                 ));
