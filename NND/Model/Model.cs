@@ -196,11 +196,15 @@ namespace NND.Model
                                     new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
                 }
                 ));
-            LayerTypes.Add(new LayerType("BatchNormalization", "LocallyConnected",
+            LayerTypes.Add(new LayerType("BatchNormalization", "Normalization",
                 new Parameter[]{    new Parameter("axis", "Int", "1", new string[]{ }),
                                     new Parameter("momentum", "Float", "0.99", new string[]{ }),
                                     new Parameter("epsilon", "Float", "0.01", new string[]{ }),
                                     new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("GaussianNoise", "Noise",
+                new Parameter[]{    new Parameter("stddev", "Float", "1.0", new string[]{ }),
                 }
                 ));
         }
