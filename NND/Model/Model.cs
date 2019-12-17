@@ -211,6 +211,11 @@ namespace NND.Model
                 new Parameter[]{    new Parameter("rate", "Float", "0.8", new string[]{ }),
                 }
                 ));
+            LayerTypes.Add(new LayerType("AlphaDropout", "Noise",
+                new Parameter[]{    new Parameter("rate", "Float", "0.8", new string[]{ }),
+                                    new Parameter("noise_shape", "Tuple", "1", new string[]{ }),
+                }
+                ));
         }
 
         public LayerType[] GetLayerTypes() { return LayerTypes.ToArray(); }
