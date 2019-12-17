@@ -82,6 +82,14 @@ namespace NND.Model
                                     new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
                 }
                 ));
+            LayerTypes.Add(new LayerType("Conv3D", "Convolutional",
+                new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
+                                    new Parameter("kernel_size", "Tuple", "1", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" }),
+                                    new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
+                }
+                ));
         }
 
         public LayerType[] GetLayerTypes() { return LayerTypes.ToArray(); }
