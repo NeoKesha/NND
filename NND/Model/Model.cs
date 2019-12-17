@@ -40,6 +40,13 @@ namespace NND.Model
                 new Parameter[]{    new Parameter("rate", "Float", "1.0", new string[]{ })
                 }
                 ));
+            LayerTypes.Add(new LayerType("Conv1D", "Convolutional",
+                new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
+                                    new Parameter("kernel_size", "Tuple", "1", new string[]{ }),
+                                    new Parameter("strides", "Int", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid", "casual" })
+                }
+                ));
         }
 
         public LayerType[] GetLayerTypes() { return LayerTypes.ToArray(); }
