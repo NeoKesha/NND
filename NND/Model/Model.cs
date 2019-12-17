@@ -140,6 +140,12 @@ namespace NND.Model
                                     new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
                 }
                 ));
+            LayerTypes.Add(new LayerType("AveragePooling1D", "Convolutional",
+                new Parameter[]{    new Parameter("pool_size", "Int", "2", new string[]{ }),
+                                    new Parameter("strides", "Int", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
+                }
+                ));
         }
 
         public LayerType[] GetLayerTypes() { return LayerTypes.ToArray(); }
