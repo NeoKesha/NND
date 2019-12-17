@@ -158,6 +158,10 @@ namespace NND.Model
                                     new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
                 }
                 ));
+            LayerTypes.Add(new LayerType("GlobalMaxPooling1D", "Convolutional",
+                new Parameter[]{
+                }
+                ));
         }
 
         public LayerType[] GetLayerTypes() { return LayerTypes.ToArray(); }
