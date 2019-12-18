@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GuardUtils\GuardUtils.csproj" />
     <ProjectReference Include="..\NND\NND.csproj" />
   </ItemGroup>
 

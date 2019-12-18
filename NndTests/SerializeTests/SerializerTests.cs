@@ -62,6 +62,7 @@ namespace NndTests.SerializeTests
             {
                 actual = reader.ReadLine();
             }
+
             Assert.True(expected.Equals(actual, StringComparison.CurrentCultureIgnoreCase));
         }
     }

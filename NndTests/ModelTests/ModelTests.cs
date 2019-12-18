@@ -43,7 +43,6 @@ namespace NndTests.ModelTests
             );
             model.AddNode(layerType);
             var firstNode = model.GetLayerNodes()?.First();
-
             Assert.AreEqual(firstNode, model.GetLayerNodes()?[0]);
 
             model.AddNode(layerType, 0);
@@ -102,6 +101,5 @@ namespace NndTests.ModelTests
 
             Assert.AreEqual(firstNode, model.GetLayerNodes()?[0]);
         }
-
     }
 }
