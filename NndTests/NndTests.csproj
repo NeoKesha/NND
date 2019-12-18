@@ -18,8 +18,4 @@
     <ProjectReference Include="..\NND\NND.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ModelTests\" />
-  </ItemGroup>
-
 </Project>
