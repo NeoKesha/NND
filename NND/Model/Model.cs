@@ -40,6 +40,182 @@ namespace NND.Model
                 new Parameter[]{    new Parameter("rate", "Float", "1.0", new string[]{ })
                 }
                 ));
+            LayerTypes.Add(new LayerType("Conv1D", "Convolutional",
+                new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
+                                    new Parameter("kernel_size", "Tuple", "1", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid", "casual" }),
+                                    new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("Conv2D", "Convolutional",
+                new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
+                                    new Parameter("kernel_size", "Tuple", "1", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" }),
+                                    new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("SeparableConv1D", "Convolutional",
+                new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
+                                    new Parameter("kernel_size", "Tuple", "1", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" }),
+                                    new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" }),
+                                    new Parameter("depth_multiplier", "Int", "1", new string[]{ }),
+                }
+                ));
+            LayerTypes.Add(new LayerType("SeparableConv2D", "Convolutional",
+                new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
+                                    new Parameter("kernel_size", "Tuple", "1", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" }),
+                                    new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" }),
+                                    new Parameter("depth_multiplier", "Int", "1", new string[]{ }),
+                }
+                ));
+            LayerTypes.Add(new LayerType("Conv2DTranspose", "Convolutional",
+                new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
+                                    new Parameter("kernel_size", "Tuple", "1", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" }),
+                                    new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("Conv3D", "Convolutional",
+                new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
+                                    new Parameter("kernel_size", "Tuple", "1", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" }),
+                                    new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("Conv3DTranspose", "Convolutional",
+                new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
+                                    new Parameter("kernel_size", "Tuple", "1", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" }),
+                                    new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("Cropping1D", "Convolutional",
+                new Parameter[]{    new Parameter("cropping", "Tuple", "0, 0", new string[]{ }),
+                }
+                ));
+            LayerTypes.Add(new LayerType("Cropping2D", "Convolutional",
+                new Parameter[]{    new Parameter("cropping", "Tuple", "0, 0, 0, 0", new string[]{ }),
+                }
+                ));
+            LayerTypes.Add(new LayerType("Cropping3D", "Convolutional",
+                new Parameter[]{    new Parameter("cropping", "Tuple", "0, 0, 0, 0, 0, 0", new string[]{ }),
+                }
+                ));
+            LayerTypes.Add(new LayerType("UpSampling1D", "Convolutional",
+                new Parameter[]{    new Parameter("size", "Int", "1", new string[]{ }),
+                }
+                ));
+            LayerTypes.Add(new LayerType("UpSampling2D", "Convolutional",
+                new Parameter[]{    new Parameter("size", "Tuple", "1,1", new string[]{ }),
+                }
+                ));
+            LayerTypes.Add(new LayerType("UpSampling3D", "Convolutional",
+                new Parameter[]{    new Parameter("size", "Tuple", "1,1,1", new string[]{ }),
+                }
+                ));
+            LayerTypes.Add(new LayerType("MaxPooling1D", "Pooling",
+                new Parameter[]{    new Parameter("pool_size", "Int", "2", new string[]{ }),
+                                    new Parameter("strides", "Int", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("MaxPooling2D", "Pooling",
+                new Parameter[]{    new Parameter("pool_size", "Tuple", "2,2", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1, 1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("MaxPooling3D", "Pooling",
+                new Parameter[]{    new Parameter("pool_size", "Tuple", "2,2,2", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1, 1, 1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("AveragePooling1D", "Pooling",
+                new Parameter[]{    new Parameter("pool_size", "Int", "2", new string[]{ }),
+                                    new Parameter("strides", "Int", "1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("AveragePooling2D", "Pooling",
+                new Parameter[]{    new Parameter("pool_size", "Tuple", "2,2", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1, 1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("AveragePooling3D", "Pooling",
+                new Parameter[]{    new Parameter("pool_size", "Tuple", "2,2,2", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1, 1, 1", new string[]{ }),
+                                    new Parameter("padding", "String", "same" , new string[] { "same", "valid" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("GlobalMaxPooling1D", "Pooling",
+                new Parameter[]{
+                }
+                ));
+            LayerTypes.Add(new LayerType("GlobalAveragePooling1D", "Pooling",
+                new Parameter[]{
+                }
+                ));
+            LayerTypes.Add(new LayerType("GlobalMaxPooling2D", "Pooling",
+                new Parameter[]{
+                }
+                ));
+            LayerTypes.Add(new LayerType("GlobalAveragePooling2D", "Pooling",
+                new Parameter[]{
+                }
+                ));
+            LayerTypes.Add(new LayerType("GlobalMaxPooling3D", "Pooling",
+                new Parameter[]{
+                }
+                ));
+            LayerTypes.Add(new LayerType("GlobalAveragePooling3D", "Pooling",
+                new Parameter[]{
+                }
+                ));
+            LayerTypes.Add(new LayerType("LocallyConnected1D", "LocallyConnected",
+                new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
+                                    new Parameter("kernel_size", "Tuple", "1", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1", new string[]{ }),
+                                    new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("LocallyConnected2D", "LocallyConnected",
+                new Parameter[]{    new Parameter("filters", "Int", "1", new string[]{ }),
+                                    new Parameter("kernel_size", "Tuple", "1,1", new string[]{ }),
+                                    new Parameter("strides", "Tuple", "1,1", new string[]{ }),
+                                    new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("BatchNormalization", "Normalization",
+                new Parameter[]{    new Parameter("axis", "Int", "1", new string[]{ }),
+                                    new Parameter("momentum", "Float", "0.99", new string[]{ }),
+                                    new Parameter("epsilon", "Float", "0.01", new string[]{ }),
+                                    new Parameter("activation", "String", "relu" , new string[] { "relu", "tanh", "sigmoid",  "exponential", "linear" })
+                }
+                ));
+            LayerTypes.Add(new LayerType("GaussianNoise", "Noise",
+                new Parameter[]{    new Parameter("stddev", "Float", "1.0", new string[]{ }),
+                }
+                ));
+            LayerTypes.Add(new LayerType("GaussianDropout", "Noise",
+                new Parameter[]{    new Parameter("rate", "Float", "0.8", new string[]{ }),
+                }
+                ));
+            LayerTypes.Add(new LayerType("AlphaDropout", "Noise",
+                new Parameter[]{    new Parameter("rate", "Float", "0.8", new string[]{ }),
+                                    new Parameter("noise_shape", "Tuple", "1", new string[]{ }),
+                }
+                ));
         }
 
         public LayerType[] GetLayerTypes() { return LayerTypes.ToArray(); }
