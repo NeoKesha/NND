@@ -26,7 +26,7 @@ namespace NND.Serialize
         static private string dataType = "float32";
         public SerialLayer() {
             ClassName = "";
-            Config = new Dictionary<string, object>();
+            Config = null;
         }
 
         public SerialLayer(Model.LayerNode node)
