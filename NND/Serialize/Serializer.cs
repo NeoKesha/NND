@@ -32,6 +32,9 @@ namespace NND.Serialize
             KerasVersion = "2.2.5";
             Backend = "tensorflow";
         }
+        public Serializer(System.IO.StreamReader reader, Serializer target) {
+            target = (Serializer)JsonConvert.DeserializeObject(reader.ReadToEnd());
+        }
 
         public void Serialize(System.IO.StreamWriter writer)
         {
