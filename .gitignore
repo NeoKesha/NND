@@ -335,4 +335,4 @@ ASALocalRun/
 .scannerwork/
 .sonarqube/
 .sonarlint/
-/.ruleset/
+*.ruleset/
