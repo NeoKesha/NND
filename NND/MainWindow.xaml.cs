@@ -29,6 +29,8 @@ namespace NND
             model = new Model.Model();
             listBox.ItemsSource = model.GetLayerTypesLink();
             listBox1.ItemsSource = model.GetLayerNodesLink();
+            Serialize.Deserializer des = new Serialize.Deserializer();
+            des.Deserialize(new System.IO.StreamReader(@"D:\test.txt"), model);
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)

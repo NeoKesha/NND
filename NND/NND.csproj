@@ -68,6 +68,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Serialize\Config.cs" />
+    <Compile Include="Serialize\Deserializer.cs" />
     <Compile Include="Serialize\Serializer.cs" />
     <Compile Include="Serialize\SerialLayer.cs" />
     <Page Include="MainWindow.xaml">
