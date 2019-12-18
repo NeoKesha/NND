@@ -1,4 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="SonarQube - NN Designer Sonar way" ToolsVersion="16.0">
-  <Include Path=".sonarlint\ndcsharp.ruleset" Action="Default" />
-</RuleSet>
