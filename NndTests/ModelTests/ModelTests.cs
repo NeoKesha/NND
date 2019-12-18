@@ -22,7 +22,31 @@ namespace NndTests.ModelTests
                 }
             );
             model.AddNode(layerType);
+
             Assert.That(model.GetLayerNodes()?.Length == 1);
+        }
+
+        [Test]
+        public void RemoveNodeTest()
+        {
+            var model = new Model();
+
+            Assert.NotNull(model.GetLayerNodes());
+            Assert.That(model.GetLayerNodes()?.Length == 0);
+
+            var layerType = new LayerType("Dropout", "Core",
+                new[]
+                {
+                    new Parameter("rate", "Float", "1.0", Array.Empty<string>())
+                }
+            );
+            model.AddNode(layerType);
+
+            Assert.That(model.GetLayerNodes()?.Length == 1);
+
+            model.RemoveNode(0);
+
+            Assert.That(model.GetLayerNodes()?.Length == 0);
         }
     }
 }
