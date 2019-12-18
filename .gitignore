@@ -330,4 +330,8 @@ ASALocalRun/
 .mfractor/
 
 # Sonar files
+/.sonar/
+.sonar/
+.scannerwork/
 .sonarqube/
+.sonarlint/
