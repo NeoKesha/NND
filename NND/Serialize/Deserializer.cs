@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace NND.Serialize {
-    class Deserializer {
+    public class Deserializer {
     }
 }
