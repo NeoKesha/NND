@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29318.209
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NND", "NND.csproj", "{FBF20268-5A65-4BD6-8250-92F511A2FE4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NndTests", "..\NndTests\NndTests.csproj", "{3FBAF330-9E6E-4CB0-A0F4-EA4747463853}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NndTests", "..\NndTests\NndTests.csproj", "{3FBAF330-9E6E-4CB0-A0F4-EA4747463853}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuardUtils", "..\GuardUtils\GuardUtils.csproj", "{8142597F-B147-4246-A7FA-FD255529FFB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{3FBAF330-9E6E-4CB0-A0F4-EA4747463853}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FBAF330-9E6E-4CB0-A0F4-EA4747463853}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FBAF330-9E6E-4CB0-A0F4-EA4747463853}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8142597F-B147-4246-A7FA-FD255529FFB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8142597F-B147-4246-A7FA-FD255529FFB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8142597F-B147-4246-A7FA-FD255529FFB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8142597F-B147-4246-A7FA-FD255529FFB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
