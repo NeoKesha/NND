@@ -249,11 +249,13 @@ namespace NND.Model
             };
         }
 
+        [NotNull]
         public LayerType[] GetLayerTypes()
         {
             return _layerTypes.ToArray();
         }
 
+        [NotNull]
         public LayerNode[] GetLayerNodes()
         {
             return _layerNodes.ToArray();
@@ -280,11 +282,13 @@ namespace NND.Model
             _layerNodes.RemoveAt((src > dest) ? (src + 1) : src);
         }
 
+        [NotNull]
         public ObservableCollection<LayerType> GetLayerTypesLink()
         {
             return _layerTypes;
         }
 
+        [NotNull]
         public ObservableCollection<LayerNode> GetLayerNodesLink()
         {
             return _layerNodes;
