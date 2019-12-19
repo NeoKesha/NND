@@ -30,13 +30,13 @@ namespace NND.Serialize {
                     } else if (param.Key == "dtype") {
                         dtype = str;
                     } else {
-                        node.values[param.Key] = str;
+                        node.Values[param.Key] = str;
                     }
                     if (!String.IsNullOrEmpty(dtype) && !String.IsNullOrEmpty(batch_size) && !has_input) {
                         model.AddNode(types.Where(t => t.LayerName == "Input").FirstOrDefault(),0);
                         var input = model.GetLayerNodesLink().First();
-                        input.values["dtype"] = dtype;
-                        input.values["batch_input_shape"] = batch_size;
+                        input.Values["dtype"] = dtype;
+                        input.Values["batch_input_shape"] = batch_size;
                         has_input = true;
                     }
                 }

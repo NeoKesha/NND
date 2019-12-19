@@ -52,7 +52,7 @@ namespace NND
             Model.LayerNode selected = (Model.LayerNode)listBox1.SelectedItem;
             if (selected != null)
             {
-                listBox2.ItemsSource = selected.values;
+                listBox2.ItemsSource = selected.Values;
             }
         }
 
@@ -74,9 +74,9 @@ namespace NND
             Model.LayerNode selectedNode = (Model.LayerNode)listBox1.SelectedItem;
             if (selectedNode != null)
             {
-                selectedNode.values[selectedKey] = textBox.Text;
+                selectedNode.Values[selectedKey] = textBox.Text;
                 listBox2.ItemsSource = null;
-                listBox2.ItemsSource = selectedNode.values;
+                listBox2.ItemsSource = selectedNode.Values;
             }
         }
 

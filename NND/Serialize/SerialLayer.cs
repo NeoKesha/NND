@@ -35,8 +35,8 @@ namespace NND.Serialize
             Config = new Dictionary<string, object>();
             if (ClassName == "Input")
             {
-                dataType = node.values["dtype"];
-                inputShape = node.values["shape"];
+                dataType = node.Values["dtype"];
+                inputShape = node.Values["shape"];
                 setInput = true;
             }
             else
@@ -57,7 +57,7 @@ namespace NND.Serialize
                 foreach (var value in node.Base.Parameters)
                 {
                     string param_key = value.Name;
-                    string param_value = node.values[param_key];
+                    string param_value = node.Values[param_key];
                     switch (value.Type.ToLower())
                     {
                         case "string":
