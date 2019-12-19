@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace NND.Model
 {
     public class StaticModel : IModel
     {
-        private readonly ObservableCollection<LayerType> _layerTypes;
-        private readonly ObservableCollection<LayerNode> _layerNodes;
+        [NotNull] private readonly ObservableCollection<LayerType> _layerTypes;
+        [NotNull] private readonly ObservableCollection<LayerNode> _layerNodes;
 
         public StaticModel()
         {
