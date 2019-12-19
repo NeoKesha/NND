@@ -1,4 +1,6 @@
-﻿namespace NND.Model
+﻿using JetBrains.Annotations;
+
+namespace NND.Model
 {
     public interface IModel
     {
@@ -8,8 +10,8 @@
         LayerType[] GetLayerTypes();
         LayerNode[] GetLayerNodes();
 
-        void AddNode(LayerType baseType);
-        void AddNode(LayerType baseType, int position);
+        void AddNode([NotNull] LayerType baseType);
+        void AddNode([NotNull] LayerType baseType, int position);
         void RemoveNode(int position);
         void MoveNode(int src, int dest);
     }

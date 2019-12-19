@@ -16,7 +16,7 @@ namespace NND
         public MainWindow()
         {
             InitializeComponent();
-            _staticModel = new Model.StaticModel();
+            _staticModel = new StaticModel();
             listBox.ItemsSource = _staticModel.GetLayerTypesLink();
             listBox1.ItemsSource = _staticModel.GetLayerNodesLink();
         }
