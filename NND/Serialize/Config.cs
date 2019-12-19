@@ -1,37 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
+using NND.Model;
 
 namespace NND.Serialize
 {
     public class Config
     {
-        [JsonProperty(PropertyName = "name")]
-
-        public String Name { get; set; }
+        [JsonProperty(PropertyName = "name")] public string Name { get; set; }
 
         [JsonProperty(PropertyName = "layers")]
 
-        public List<SerialLayer> Layers { get; set; }
+        public List<SerialLayer> Layers { get; }
 
-        public Config(Model.Model model)
+        public Config(IModel staticModel)
         {
             Name = "sequential_1";
             Layers = new List<SerialLayer>();
-            var Nodes = model.GetLayerNodes();
-            foreach (var node in Nodes)
+            var nodes = staticModel.GetLayerNodes();
+            foreach (var node in nodes)
             {
-                SerialLayer layer = new SerialLayer(node);
+                var layer = new SerialLayer(node);
                 if (layer.ClassName != "Input")
                 {
                     Layers.Add(layer);
                 }
             }
         }
-        public Config() {
+
+        public Config()
+        {
             Name = "";
             Layers = null;
         }

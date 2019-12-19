@@ -1,29 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace NND.Model
 {
     public class LayerNode
     {
-        static UInt32 count = 0;
+        private static uint _count;
 
-        public LayerType Base { get; private set; }
+        public LayerType Base { get; }
 
-        public Dictionary<string, string> values;
+        public Dictionary<string, string> Values { get; }
 
-        public UInt32 Id { get; private set; }
+        public uint Id { get; }
 
         public LayerNode(LayerType type)
         {
             Base = type;
-            values = new Dictionary<string, string>();
-            Id = ++count;
+            Values = new Dictionary<string, string>();
+            Id = ++_count;
             foreach (var p in type.Parameters)
             {
-                values.Add(p.Name, p.DefaultValue);
+                Values.Add(p.Name, p.DefaultValue);
             }
         }
 

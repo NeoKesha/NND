@@ -79,7 +79,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controller\Controller.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -89,7 +88,7 @@
     <Compile Include="Model\IModel.cs" />
     <Compile Include="Model\LayerNode.cs" />
     <Compile Include="Model\LayerType.cs" />
-    <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\StaticModel.cs" />
     <Compile Include="Model\Parameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

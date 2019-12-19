@@ -11,7 +11,7 @@ namespace NndTests.ModelTests
         [Test]
         public void AddNodeTest()
         {
-            var model = new Model();
+            var model = new StaticModel();
 
             Assert.NotNull(model.GetLayerNodes());
             Assert.That(model.GetLayerNodes()?.Length == 0);
@@ -30,7 +30,7 @@ namespace NndTests.ModelTests
         [Test]
         public void AddNodeWithIndexTest()
         {
-            var model = new Model();
+            var model = new StaticModel();
 
             Assert.NotNull(model.GetLayerNodes());
             Assert.That(model.GetLayerNodes()?.Length == 0);
@@ -53,7 +53,7 @@ namespace NndTests.ModelTests
         [Test]
         public void RemoveNodeTest()
         {
-            var model = new Model();
+            var model = new StaticModel();
 
             Assert.NotNull(model.GetLayerNodes());
             Assert.That(model.GetLayerNodes()?.Length == 0);
@@ -76,7 +76,7 @@ namespace NndTests.ModelTests
         [Test]
         public void MoveNodeTest()
         {
-            var model = new Model();
+            var model = new StaticModel();
 
             Assert.NotNull(model.GetLayerNodes());
             Assert.That(model.GetLayerNodes()?.Length == 0);

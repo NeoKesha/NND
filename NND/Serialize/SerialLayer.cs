@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace NND.Serialize
@@ -11,20 +8,20 @@ namespace NND.Serialize
     {
         [JsonProperty(PropertyName = "class_name")]
 
-        public String ClassName { get; set; }
+        public string ClassName { get; set; }
 
         [JsonProperty(PropertyName = "config")]
 
-        public Dictionary<String, Object> Config { get; set; }
-        [NonSerialized]
-        static private string inputShape = "1";
+        public Dictionary<string, object> Config { get; }
 
-        [NonSerialized]
-        static private bool setInput = false;
+        [NonSerialized] private static string _inputShape = "1";
 
-        [NonSerialized]
-        static private string dataType = "float32";
-        public SerialLayer() {
+        [NonSerialized] private static bool _setInput;
+
+        [NonSerialized] private static string _dataType = "float32";
+
+        public SerialLayer()
+        {
             ClassName = "";
             Config = null;
         }
@@ -35,48 +32,54 @@ namespace NND.Serialize
             Config = new Dictionary<string, object>();
             if (ClassName == "Input")
             {
-                dataType = node.values["dtype"];
-                inputShape = node.values["shape"];
-                setInput = true;
+                _dataType = node.Values["dtype"];
+                _inputShape = node.Values["shape"];
+                _setInput = true;
             }
             else
             {
-                if (setInput)
+                if (_setInput)
                 {
-                    string[] strs = inputShape.Split(',');
-                    Object[] ints = new Object[strs.Length + 1];
+                    var strings = _inputShape.Split(',');
+                    var ints = new object[strings.Length + 1];
                     ints[0] = null;
-                    for (var i = 1; i < strs.Length + 1; ++i)
+                    for (var i = 1; i < strings.Length + 1; ++i)
                     {
-                        ints[i] = Convert.ToInt32(strs[i - 1]);
+                        ints[i] = Convert.ToInt32(strings[i - 1], System.Globalization.CultureInfo.InvariantCulture);
                     }
+
                     Config.Add("batch_input_shape", ints);
-                    setInput = false;
+                    _setInput = false;
                 }
-                Config.Add("dtype", dataType);
+
+                Config.Add("dtype", _dataType);
                 foreach (var value in node.Base.Parameters)
                 {
-                    string param_key = value.Name;
-                    string param_value = node.values[param_key];
-                    switch (value.Type.ToLower())
+                    var paramKey = value.Name;
+                    var paramValue = node.Values[paramKey];
+                    switch (value.Type.ToUpperInvariant())
                     {
                         case "string":
-                            Config.Add(param_key, param_value);
+                            Config.Add(paramKey, paramValue);
                             break;
                         case "float":
-                            Config.Add(param_key, Convert.ToSingle(param_value, System.Globalization.CultureInfo.InvariantCulture));
+                            Config.Add(paramKey,
+                                Convert.ToSingle(paramValue, System.Globalization.CultureInfo.InvariantCulture));
                             break;
                         case "int":
-                            Config.Add(param_key, Convert.ToInt32(param_value));
+                            Config.Add(paramKey,
+                                Convert.ToInt32(paramValue, System.Globalization.CultureInfo.InvariantCulture));
                             break;
                         case "tuple":
-                            string[] strs = param_value.Split(',');
-                            int[] ints = new int[strs.Length];
-                            for (var i = 0; i < strs.Length; ++i)
+                            var strings = paramValue.Split(',');
+                            var ints = new int[strings.Length];
+                            for (var i = 0; i < strings.Length; ++i)
                             {
-                                ints[i] = Convert.ToInt32(strs[i]);
+                                ints[i] = Convert.ToInt32(strings[i],
+                                    System.Globalization.CultureInfo.InvariantCulture);
                             }
-                            Config.Add(param_key, ints);
+
+                            Config.Add(paramKey, ints);
                             break;
                     }
                 }

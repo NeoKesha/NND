@@ -1,30 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace NND.Model
 {
     public class LayerType
     {
-        static int Layers = 0;
+        private static int _layers;
 
-        public int LayerID { get; private set; }
+        public int LayerId { get; }
 
-        public string LayerName { get; private set; }
+        public string LayerName { get; }
 
-        public string CategoryName { get; private set; }
+        public string CategoryName { get; }
 
-        public List<Parameter> Parameters { get; private set; }
+        public List<Parameter> Parameters { get; }
 
         public LayerType(string layerName, string categoryName, Parameter[] parameters)
         {
-            LayerID = ++Layers;
+            LayerId = ++_layers;
             LayerName = layerName;
             CategoryName = categoryName;
             Parameters = new List<Parameter>(parameters);
         }
+
         public override string ToString()
         {
             return LayerName;
