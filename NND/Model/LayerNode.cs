@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using GuardUtils;
+using JetBrains.Annotations;
 
 namespace NND.Model
 {
@@ -6,14 +8,16 @@ namespace NND.Model
     {
         private static uint _count;
 
-        public LayerType Base { get; }
+        [NotNull] public LayerType Base { get; }
 
-        public Dictionary<string, string> Values { get; }
+        [NotNull] public Dictionary<string, string> Values { get; }
 
         public uint Id { get; }
 
-        public LayerNode(LayerType type)
+        public LayerNode([NotNull] LayerType type)
         {
+            ThrowIf.Variable.IsNull(type, nameof(type));
+
             Base = type;
             Values = new Dictionary<string, string>();
             Id = ++_count;
