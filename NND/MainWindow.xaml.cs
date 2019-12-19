@@ -92,6 +92,7 @@ namespace NND
         {
             Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog();
             saveFileDialog.Filter = "JSON File (*.json)|*.json";
+            saveFileDialog.DefaultExt = ".json";
             if (saveFileDialog.ShowDialog().Value)
             {
                 String fileName = saveFileDialog.FileName;
@@ -100,6 +101,18 @@ namespace NND
                 serializer.Serialize(writer);
                 writer.Flush();
                 writer.Close();
+            }
+        }
+        private void Load_Click(object sender, RoutedEventArgs e) {
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            openFileDialog.Filter = "JSON File (*.json)|*.json";
+            openFileDialog.DefaultExt = ".json";
+            if (openFileDialog.ShowDialog().Value) {
+                String fileName = openFileDialog.FileName;
+                System.IO.StreamReader reader = new System.IO.StreamReader(new System.IO.FileStream(fileName, System.IO.FileMode.Open, System.IO.FileAccess.Read));
+                Serialize.Deserializer deserializer = new Serialize.Deserializer();
+                deserializer.Deserialize(reader,model);
+                reader.Close();
             }
         }
     }

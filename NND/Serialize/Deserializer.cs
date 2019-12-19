@@ -10,6 +10,7 @@ namespace NND.Serialize {
         public void Deserialize(System.IO.StreamReader reader, Model.Model model) {
             Serializer serializer = JsonConvert.DeserializeObject<Serializer>(reader.ReadToEnd());
             var types = model.GetLayerTypesLink();
+            model.GetLayerNodesLink().Clear();
             string batch_size = "";
             string dtype = "";
             bool has_input = false;

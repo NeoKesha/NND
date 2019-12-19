@@ -13,6 +13,7 @@
         <Button x:Name="button1" Content="Remove" HorizontalAlignment="Center" Height="20" Margin="265,0,282,29" VerticalAlignment="Bottom" Width="245" Click="Remove_Click"/>
         <ListBox x:Name="listBox2" Height="240" Margin="0,20,27,0" Width="240" SelectionChanged="ListBox2_SelectionChanged" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="240" MinHeight="240"/>
         <TextBox x:Name="textBox" Height="26" Margin="560,289,27,124" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="240" TextChanged="TextBox_TextChanged" HorizontalAlignment="Right" MinWidth="240" MinHeight="26"/>
-        <Button x:Name="button3" Content="Save to JSON" HorizontalAlignment="Right" Margin="0,0,27,29" VerticalAlignment="Bottom" Width="240" Click="Save_Click"/>
+        <Button x:Name="button3" Content="Save to JSON" HorizontalAlignment="Right" Margin="0,0,27,56" VerticalAlignment="Bottom" Width="240" Click="Save_Click"/>
+        <Button x:Name="button3_Copy" Content="Load from JSON" HorizontalAlignment="Right" Margin="0,0,27,29" VerticalAlignment="Bottom" Width="240" Click="Load_Click"/>
     </Grid>
 </Window>
