@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using GuardUtils;
+using JetBrains.Annotations;
 using NND.Model;
 
 namespace NND
@@ -10,13 +12,16 @@ namespace NND
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly StaticModel _staticModel;
-        private string _selectedKey = "";
+        [NotNull] private readonly StaticModel _staticModel;
+        [NotNull] private string _selectedKey = "";
 
         public MainWindow()
         {
             InitializeComponent();
             _staticModel = new StaticModel();
+            ThrowIf.Variable.IsNull(listBox, nameof(listBox));
+            ThrowIf.Variable.IsNull(listBox1, nameof(listBox1));
+
             listBox.ItemsSource = _staticModel.GetLayerTypesLink();
             listBox1.ItemsSource = _staticModel.GetLayerNodesLink();
         }
@@ -28,7 +33,7 @@ namespace NND
             {
                 return;
             }
-
+            ThrowIf.Variable.IsNull(listBox1, nameof(listBox1));
             if (listBox1.SelectedIndex == -1)
             {
                 _staticModel.AddNode(selected);
@@ -41,6 +46,9 @@ namespace NND
 
         private void ListBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ThrowIf.Variable.IsNull(listBox1, nameof(listBox1));
+            ThrowIf.Variable.IsNull(listBox2, nameof(listBox2));
+
             var selected = (LayerNode) listBox1.SelectedItem;
             if (selected != null)
             {
@@ -51,6 +59,8 @@ namespace NND
 
         private void ListBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ThrowIf.Variable.IsNull(listBox2, nameof(listBox2));
+
             var obj = listBox2.SelectedItem;
             if (obj == null)
             {
@@ -59,12 +69,17 @@ namespace NND
 
             var selected = (KeyValuePair<string, string>) obj;
             _selectedKey = selected.Key;
+            ThrowIf.Variable.IsNull(textBox, nameof(textBox));
             textBox.Text = selected.Value;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            LayerNode selectedNode = (LayerNode) listBox1.SelectedItem;
+            ThrowIf.Variable.IsNull(listBox1, nameof(listBox1));
+            ThrowIf.Variable.IsNull(listBox2, nameof(listBox2));
+            ThrowIf.Variable.IsNull(textBox, nameof(textBox));
+
+            var selectedNode = (LayerNode) listBox1.SelectedItem;
             if (selectedNode == null)
             {
                 return;
@@ -77,6 +92,8 @@ namespace NND
 
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
+            ThrowIf.Variable.IsNull(listBox1, nameof(listBox1));
+
             if (listBox1.SelectedIndex != -1)
             {
                 _staticModel.RemoveNode(listBox1.SelectedIndex);
