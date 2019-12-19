@@ -56,8 +56,8 @@ namespace NndTests.SerializeTests
             memoryStream.Seek(0, SeekOrigin.Begin);
 
             const string expected =
-                "{\"class_name\":\"sequential\",\"config\":{\"name\":\"sequential_1\",\"layers\":[{\"class_name\":\"Reshape\",\"config\":{\"batch_input_shape\":[null,1],\"dtype\":\"float32\",\"target_shape\":[1]}}]},\"keras_version\":\"2.2.5\",\"backend\":\"tensorflow\"}";
-            string actual;
+                "{\"class_name\":\"sequential\",\"config\":{\"name\":\"sequential_1\",\"layers\":[{\"class_name\":\"Reshape\",\"config\":{\"batch_input_shape\":[null,1],\"dtype\":\"float32\"}}]},\"keras_version\":\"2.2.5\",\"backend\":\"tensorflow\"}";
+                string actual;
             using (var reader = new StreamReader(memoryStream))
             {
                 actual = reader.ReadLine();
