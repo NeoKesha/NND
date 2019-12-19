@@ -32,7 +32,12 @@ namespace NND.Serialize
             KerasVersion = "2.2.5";
             Backend = "tensorflow";
         }
-
+        public Serializer() {
+            ClassName = "";
+            Config = null;
+            KerasVersion = "";
+            Backend = "";
+        }
         public void Serialize(System.IO.StreamWriter writer)
         {
             if (writer != null)

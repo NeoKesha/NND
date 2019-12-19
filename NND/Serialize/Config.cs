@@ -31,5 +31,9 @@ namespace NND.Serialize
                 }
             }
         }
+        public Config() {
+            Name = "";
+            Layers = null;
+        }
     }
 }

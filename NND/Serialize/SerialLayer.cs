@@ -24,6 +24,10 @@ namespace NND.Serialize
 
         [NonSerialized]
         static private string dataType = "float32";
+        public SerialLayer() {
+            ClassName = "";
+            Config = null;
+        }
 
         public SerialLayer(Model.LayerNode node)
         {
