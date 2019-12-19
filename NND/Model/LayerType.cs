@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GuardUtils;
 using JetBrains.Annotations;
 
 namespace NND.Model
@@ -18,6 +19,10 @@ namespace NND.Model
         public LayerType([NotNull] string layerName, [NotNull] string categoryName,
             [NotNull] [ItemNotNull] Parameter[] parameters)
         {
+            ThrowIf.Variable.IsNull(layerName, nameof(layerName));
+            ThrowIf.Variable.IsNull(categoryName, nameof(categoryName));
+            ThrowIf.Variable.IsNull(parameters, nameof(parameters));
+
             LayerId = ++_layers;
             LayerName = layerName;
             CategoryName = categoryName;
