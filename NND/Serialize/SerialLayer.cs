@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using GuardUtils;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
+using NND.Model;
 
 namespace NND.Serialize
 {
     public class SerialLayer
     {
         [JsonProperty(PropertyName = "class_name")]
-
+        [NotNull]
         public string ClassName { get; set; }
 
         [JsonProperty(PropertyName = "config")]
@@ -26,8 +29,10 @@ namespace NND.Serialize
             Config = null;
         }
 
-        public SerialLayer(Model.LayerNode node)
+        public SerialLayer([NotNull] LayerNode node)
         {
+            ThrowIf.Variable.IsNull(node, nameof(node));
+
             ClassName = node.Base.LayerName;
             Config = new Dictionary<string, object>();
             if (ClassName == "Input")
@@ -40,6 +45,7 @@ namespace NND.Serialize
             {
                 if (_setInput)
                 {
+                    ThrowIf.Variable.IsNull(_inputShape, nameof(_inputShape));
                     var strings = _inputShape.Split(',');
                     var ints = new object[strings.Length + 1];
                     ints[0] = null;
@@ -71,6 +77,8 @@ namespace NND.Serialize
                                 Convert.ToInt32(paramValue, System.Globalization.CultureInfo.InvariantCulture));
                             break;
                         case "tuple":
+                            ThrowIf.Variable.IsNull(paramValue, nameof(paramValue));
+
                             var strings = paramValue.Split(',');
                             var ints = new int[strings.Length];
                             for (var i = 0; i < strings.Length; ++i)

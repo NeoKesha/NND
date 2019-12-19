@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace NND.Model
 {
     public class StaticModel : IModel
     {
-        private readonly ObservableCollection<LayerType> _layerTypes;
-        private readonly ObservableCollection<LayerNode> _layerNodes;
+        [NotNull] private readonly ObservableCollection<LayerType> _layerTypes;
+        [NotNull] private readonly ObservableCollection<LayerNode> _layerNodes;
 
         public StaticModel()
         {
@@ -248,11 +249,13 @@ namespace NND.Model
             };
         }
 
+        [NotNull]
         public LayerType[] GetLayerTypes()
         {
             return _layerTypes.ToArray();
         }
 
+        [NotNull]
         public LayerNode[] GetLayerNodes()
         {
             return _layerNodes.ToArray();
@@ -279,11 +282,13 @@ namespace NND.Model
             _layerNodes.RemoveAt((src > dest) ? (src + 1) : src);
         }
 
+        [NotNull]
         public ObservableCollection<LayerType> GetLayerTypesLink()
         {
             return _layerTypes;
         }
 
+        [NotNull]
         public ObservableCollection<LayerNode> GetLayerNodesLink()
         {
             return _layerNodes;

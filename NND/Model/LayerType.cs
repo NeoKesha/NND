@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using GuardUtils;
+using JetBrains.Annotations;
 
 namespace NND.Model
 {
@@ -8,14 +10,19 @@ namespace NND.Model
 
         public int LayerId { get; }
 
-        public string LayerName { get; }
+        [NotNull] public string LayerName { get; }
 
-        public string CategoryName { get; }
+        [NotNull] public string CategoryName { get; }
 
-        public List<Parameter> Parameters { get; }
+        [NotNull] [ItemNotNull] public List<Parameter> Parameters { get; }
 
-        public LayerType(string layerName, string categoryName, Parameter[] parameters)
+        public LayerType([NotNull] string layerName, [NotNull] string categoryName,
+            [NotNull] [ItemNotNull] Parameter[] parameters)
         {
+            ThrowIf.Variable.IsNull(layerName, nameof(layerName));
+            ThrowIf.Variable.IsNull(categoryName, nameof(categoryName));
+            ThrowIf.Variable.IsNull(parameters, nameof(parameters));
+
             LayerId = ++_layers;
             LayerName = layerName;
             CategoryName = categoryName;
