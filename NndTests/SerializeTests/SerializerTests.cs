@@ -12,7 +12,7 @@ namespace NndTests.SerializeTests
         [Test]
         public void SerializeEmptyModelTest()
         {
-            var model = new Model();
+            var model = new StaticModel();
             var serializer = new Serializer(model);
             var memoryStream = new MemoryStream();
             var streamWriter = new StreamWriter(memoryStream);
@@ -34,7 +34,7 @@ namespace NndTests.SerializeTests
         [Test]
         public void SerializeNotEmptyModelTest()
         {
-            var model = new Model();
+            var model = new StaticModel();
             model.AddNode(new LayerType("Input", "Core",
                 new[]
                 {

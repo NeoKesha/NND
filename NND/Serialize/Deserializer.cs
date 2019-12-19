@@ -4,19 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using NND.Model;
 
 namespace NND.Serialize {
     public class Deserializer {
-        public void Deserialize(System.IO.StreamReader reader, Model.Model model) {
+        public void Deserialize(System.IO.StreamReader reader, StaticModel staticModel) {
             Serializer serializer = JsonConvert.DeserializeObject<Serializer>(reader.ReadToEnd());
-            var types = model.GetLayerTypesLink();
-            model.GetLayerNodesLink().Clear();
+            var types = staticModel.GetLayerTypesLink();
+            staticModel.GetLayerNodesLink().Clear();
             string batch_size = "";
             string dtype = "";
             bool has_input = false;
             foreach (var layer in serializer.Config.Layers) {
-                model.AddNode(types.Where(t => t.LayerName == layer.ClassName).FirstOrDefault());
-                var node = model.GetLayerNodesLink().Last();
+                staticModel.AddNode(types.Where(t => t.LayerName == layer.ClassName).FirstOrDefault());
+                var node = staticModel.GetLayerNodesLink().Last();
                 foreach (var param in layer.Config) {
                     string str = "";
                     if (param.Value is Newtonsoft.Json.Linq.JArray) {
@@ -33,8 +34,8 @@ namespace NND.Serialize {
                         node.Values[param.Key] = str;
                     }
                     if (!String.IsNullOrEmpty(dtype) && !String.IsNullOrEmpty(batch_size) && !has_input) {
-                        model.AddNode(types.Where(t => t.LayerName == "Input").FirstOrDefault(),0);
-                        var input = model.GetLayerNodesLink().First();
+                        staticModel.AddNode(types.Where(t => t.LayerName == "Input").FirstOrDefault(),0);
+                        var input = staticModel.GetLayerNodesLink().First();
                         input.Values["dtype"] = dtype;
                         input.Values["batch_input_shape"] = batch_size;
                         has_input = true;

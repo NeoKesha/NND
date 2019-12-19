@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using NND.Model;
 
 namespace NND.Serialize
 {
@@ -17,11 +18,11 @@ namespace NND.Serialize
 
         public List<SerialLayer> Layers { get; set; }
 
-        public Config(Model.Model model)
+        public Config(IModel staticModel)
         {
             Name = "sequential_1";
             Layers = new List<SerialLayer>();
-            var Nodes = model.GetLayerNodes();
+            var Nodes = staticModel.GetLayerNodes();
             foreach (var node in Nodes)
             {
                 SerialLayer layer = new SerialLayer(node);

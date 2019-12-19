@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NND.Model;
 
 namespace NND
 {
@@ -21,14 +22,14 @@ namespace NND
     public partial class MainWindow : Window
     {
 
-        private Model.Model model;
+        private StaticModel _staticModel;
 
         public MainWindow()
         {
             InitializeComponent();
-            model = new Model.Model();
-            listBox.ItemsSource = model.GetLayerTypesLink();
-            listBox1.ItemsSource = model.GetLayerNodesLink();
+            _staticModel = new Model.StaticModel();
+            listBox.ItemsSource = _staticModel.GetLayerTypesLink();
+            listBox1.ItemsSource = _staticModel.GetLayerNodesLink();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -38,11 +39,11 @@ namespace NND
             {
                 if (listBox1.SelectedIndex == -1)
                 {
-                    model.AddNode(selected);
+                    _staticModel.AddNode(selected);
                 }
                 else
                 {
-                    model.AddNode(selected, listBox1.SelectedIndex + 1);
+                    _staticModel.AddNode(selected, listBox1.SelectedIndex + 1);
                 }
             }
         }
@@ -84,7 +85,7 @@ namespace NND
         {
             if (listBox1.SelectedIndex != -1)
             {
-                model.RemoveNode(listBox1.SelectedIndex);
+                _staticModel.RemoveNode(listBox1.SelectedIndex);
             }
         }
 
@@ -97,7 +98,7 @@ namespace NND
             {
                 String fileName = saveFileDialog.FileName;
                 System.IO.StreamWriter writer = new System.IO.StreamWriter(new System.IO.FileStream(fileName, System.IO.FileMode.Create, System.IO.FileAccess.Write));
-                Serialize.Serializer serializer = new Serialize.Serializer(model);
+                Serialize.Serializer serializer = new Serialize.Serializer(_staticModel);
                 serializer.Serialize(writer);
                 writer.Flush();
                 writer.Close();
@@ -111,7 +112,7 @@ namespace NND
                 String fileName = openFileDialog.FileName;
                 System.IO.StreamReader reader = new System.IO.StreamReader(new System.IO.FileStream(fileName, System.IO.FileMode.Open, System.IO.FileAccess.Read));
                 Serialize.Deserializer deserializer = new Serialize.Deserializer();
-                deserializer.Deserialize(reader,model);
+                deserializer.Deserialize(reader,_staticModel);
                 reader.Close();
             }
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using NND.Model;
 
 namespace NND.Serialize
 {
@@ -25,10 +26,10 @@ namespace NND.Serialize
 
         public String Backend { get; set; }
 
-        public Serializer(NND.Model.Model model)
+        public Serializer(IModel staticModel)
         {
             ClassName = "sequential";
-            Config = new Config(model);
+            Config = new Config(staticModel);
             KerasVersion = "2.2.5";
             Backend = "tensorflow";
         }

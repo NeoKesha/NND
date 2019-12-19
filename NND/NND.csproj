@@ -89,7 +89,7 @@
     <Compile Include="Model\IModel.cs" />
     <Compile Include="Model\LayerNode.cs" />
     <Compile Include="Model\LayerType.cs" />
-    <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\StaticModel.cs" />
     <Compile Include="Model\Parameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
