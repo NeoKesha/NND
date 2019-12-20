@@ -14,5 +14,8 @@ namespace NND.Model
         void AddNode([NotNull] LayerType baseType, int position);
         void RemoveNode(int position);
         void MoveNode(int src, int dest);
+
+        string GetDType();
+        string GetBSize();
     }
 }

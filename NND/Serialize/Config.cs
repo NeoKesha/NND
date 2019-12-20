@@ -22,21 +22,19 @@ namespace NND.Serialize
             Layers = new List<SerialLayer>();
             var nodes = staticModel.GetLayerNodes();
             ThrowIf.Variable.IsNull(nodes, nameof(nodes));
-
+            bool first = true;
             foreach (var node in nodes)
             {
-                var layer = new SerialLayer(node);
-                if (layer.ClassName != "Input")
-                {
-                    Layers.Add(layer);
-                }
+                var layer = (first)?(new SerialLayer(node,staticModel.GetDType(),staticModel.GetBSize())):(new SerialLayer(node,staticModel.GetDType()));
+                first = false;
+                Layers.Add(layer);
             }
         }
 
         public Config()
         {
             Name = "";
-            Layers = null;
+            Layers = new List<SerialLayer>();
         }
     }
 }

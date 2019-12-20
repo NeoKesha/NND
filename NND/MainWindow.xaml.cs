@@ -24,6 +24,8 @@ namespace NND
 
             listBox.ItemsSource = _staticModel.GetLayerTypesLink();
             listBox1.ItemsSource = _staticModel.GetLayerNodesLink();
+            textBox_Copy.Text = _staticModel.DataType;
+            textBox_Copy1.Text = _staticModel.BatchSize;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -89,7 +91,14 @@ namespace NND
             listBox2.ItemsSource = null;
             listBox2.ItemsSource = selectedNode.Values;
         }
-
+        private void TextBox_Copy_TextChanged(object sender, TextChangedEventArgs e) {
+            if (_staticModel != null)
+                _staticModel.DataType = ((TextBox)sender).Text;
+        }
+        private void TextBox_Copy1_TextChanged(object sender, TextChangedEventArgs e) {
+            if (_staticModel != null)
+                _staticModel.BatchSize = ((TextBox)sender).Text;
+        }
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             ThrowIf.Variable.IsNull(listBox1, nameof(listBox1));
@@ -135,6 +144,8 @@ namespace NND
                 new System.IO.FileStream(fileName, System.IO.FileMode.Open, System.IO.FileAccess.Read));
             var deserializer = new Serialize.Deserializer();
             deserializer.Deserialize(reader, _staticModel);
+            textBox_Copy.Text = _staticModel.DataType;
+            textBox_Copy1.Text = _staticModel.BatchSize;
             reader.Close();
         }
     }

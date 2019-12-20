@@ -11,9 +11,13 @@
         <Button x:Name="add" Content="Add" HorizontalAlignment="Left" Margin="20,0,0,29" VerticalAlignment="Bottom" Width="220" Click="Add_Click"/>
         <ListBox x:Name="listBox1" Height="330" Margin="265,20,282,69" Width="245" SelectionChanged="ListBox1_SelectionChanged" VerticalAlignment="Top" HorizontalAlignment="Center" MinWidth="245" MinHeight="330"/>
         <Button x:Name="button1" Content="Remove" HorizontalAlignment="Center" Height="20" Margin="265,0,282,29" VerticalAlignment="Bottom" Width="245" Click="Remove_Click"/>
-        <ListBox x:Name="listBox2" Height="240" Margin="0,20,27,0" Width="240" SelectionChanged="ListBox2_SelectionChanged" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="240" MinHeight="240"/>
-        <TextBox x:Name="textBox" Height="26" Margin="560,289,27,124" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="240" TextChanged="TextBox_TextChanged" HorizontalAlignment="Right" MinWidth="240" MinHeight="26"/>
+        <ListBox x:Name="listBox2" Height="109" Margin="0,20,27,0" Width="200" SelectionChanged="ListBox2_SelectionChanged" HorizontalAlignment="Right" VerticalAlignment="Top" MinWidth="240" MinHeight="200"/>
+        <TextBox x:Name="textBox" Height="26" Margin="0,240,27,184" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="240" TextChanged="TextBox_TextChanged" HorizontalAlignment="Right" MinWidth="240" MinHeight="26"/>
         <Button x:Name="button3" Content="Save to JSON" HorizontalAlignment="Right" Margin="0,0,27,56" VerticalAlignment="Bottom" Width="240" Click="Save_Click"/>
         <Button x:Name="button3_Copy" Content="Load from JSON" HorizontalAlignment="Right" Margin="0,0,27,29" VerticalAlignment="Bottom" Width="240" Click="Load_Click"/>
+        <TextBox x:Name="textBox_Copy" Height="26" Margin="0,281,27,143" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120" TextChanged="TextBox_Copy_TextChanged" HorizontalAlignment="Right" MinWidth="120" MinHeight="26"/>
+        <TextBox x:Name="textBox_Copy1" Height="26" Margin="0,324,27,100" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120" TextChanged="TextBox_Copy1_TextChanged" HorizontalAlignment="Right" MinWidth="120" MinHeight="26"/>
+        <Label x:Name="label" Content="Data Type" HorizontalAlignment="Left" Margin="573,281,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Batch Input" HorizontalAlignment="Left" Margin="573,324,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
