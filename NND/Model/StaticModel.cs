@@ -10,18 +10,16 @@ namespace NND.Model
         [NotNull] private readonly ObservableCollection<LayerType> _layerTypes;
         [NotNull] private readonly ObservableCollection<LayerNode> _layerNodes;
 
+        public string BatchSize { get; set; }
+        public string DataType { get; set; }
+
         public StaticModel()
         {
+            BatchSize = "1";
+            DataType = "float32";
             _layerNodes = new ObservableCollection<LayerNode>();
             _layerTypes = new ObservableCollection<LayerType>
             {
-                new LayerType("Input", "Core",
-                    new[]
-                    {
-                        new Parameter("shape", "Tuple", "1", Array.Empty<string>()),
-                        new Parameter("dtype", "String", "float32", new[] {"float32", "float64", "int32"})
-                    }
-                ),
                 new LayerType("Reshape", "Core",
                     new[] {new Parameter("target_shape", "Tuple", "1", Array.Empty<string>())}
                 ),
@@ -280,6 +278,13 @@ namespace NND.Model
         {
             _layerNodes.Insert(dest, _layerNodes[src]);
             _layerNodes.RemoveAt((src > dest) ? (src + 1) : src);
+        }
+
+        public string GetDType() {
+            return DataType;
+        }
+        public string GetBSize() {
+            return BatchSize;
         }
 
         [NotNull]

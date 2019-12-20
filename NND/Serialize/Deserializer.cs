@@ -23,9 +23,6 @@ namespace NND.Serialize
 
             var types = staticModel.GetLayerTypesLink();
             staticModel.GetLayerNodesLink().Clear();
-            var batchSize = "";
-            var dType = "";
-            var hasInput = false;
             foreach (var layer in serializer.Config.Layers)
             {
                 staticModel.AddNode(types.FirstOrDefault(t => t.LayerName == layer.ClassName));
@@ -48,27 +45,15 @@ namespace NND.Serialize
                     switch (param.Key)
                     {
                         case "batch_input_shape":
-                            batchSize = str;
+                            staticModel.BatchSize = str;
                             break;
                         case "dtype":
-                            dType = str;
+                            staticModel.DataType = str;
                             break;
                         default:
                             node.Values[param.Key] = str;
                             break;
                     }
-
-                    if (string.IsNullOrEmpty(dType) || string.IsNullOrEmpty(batchSize) || hasInput)
-                    {
-                        continue;
-                    }
-
-                    staticModel.AddNode(types.FirstOrDefault(t => t.LayerName == "Input"), 0);
-                    var input = staticModel.GetLayerNodesLink().First();
-                    ThrowIf.Variable.IsNull(input, nameof(input));
-                    input.Values["dtype"] = dType;
-                    input.Values["batch_input_shape"] = batchSize;
-                    hasInput = true;
                 }
             }
         }

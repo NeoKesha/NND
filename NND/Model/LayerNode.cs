@@ -25,7 +25,7 @@ namespace NND.Model
 
         public override string ToString()
         {
-            return $"{Base.LayerName}";
+            return $" {Base.LayerName}";
         }
     }
 }
